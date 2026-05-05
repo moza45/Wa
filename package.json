@@ -1,0 +1,61 @@
+{
+  "name": "wa-kicker-bot",
+  "version": "5.1.0",
+  "description": "Ultimate WhatsApp Group Kicker Bot with Stealth Human Delay & SQLite Database",
+  "main": "Script.js",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "scripts": {
+    "start": "node Script.js",
+    "dev": "nodemon Script.js",
+    "pm2": "pm2 start Script.js --name wa-kicker",
+    "pm2-stop": "pm2 stop wa-kicker",
+    "pm2-restart": "pm2 restart wa-kicker",
+    "pm2-logs": "pm2 logs wa-kicker",
+    "backup-db": "cp bot_data.db backups/bot_data_$(date +%Y%m%d_%H%M%S).db",
+    "migrate": "node migrate.js",
+    "health": "curl http://localhost:3000/?key=$HEALTH_API_KEY",
+    "test": "node test.js",
+    "lint": "eslint Script.js",
+    "clean": "rm -rf auth_states/* bot_data.db.backup error.log old_*.log"
+  },
+  "dependencies": {
+    "@whiskeysockets/baileys": "^6.7.5",
+    "crypto": "^1.0.1",
+    "dotenv": "^16.3.1",
+    "fs": "^0.0.1-security",
+    "http": "^0.0.1-security",
+    "path": "^0.12.7",
+    "pino": "^8.17.2",
+    "qrcode": "^1.5.3",
+    "sqlite3": "^5.1.7",
+    "telegraf": "^4.15.3"
+  },
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "nodemon": "^3.0.2",
+    "pm2": "^5.3.0"
+  },
+  "keywords": [
+    "whatsapp-bot",
+    "telegram-bot",
+    "wa-kicker",
+    "baileys",
+    "telegraf",
+    "stealth-bot",
+    "group-manager",
+    "whatsapp-tools"
+  ],
+  "author": "WA Kicker Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/wa-kicker-bot"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/wa-kicker-bot/issues"
+  },
+  "homepage": "https://github.com/yourusername/wa-kicker-bot#readme"
+}
