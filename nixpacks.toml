@@ -1,0 +1,17 @@
+[phases.setup]
+nixPkgs = ["nodejs_20", "python3", "make", "gcc"]
+
+[phases.install]
+cmds = ["npm install"]
+
+[phases.build]
+cmds = ["npm run build || true"]
+
+[start]
+cmd = "node Script.js"
+
+[health]
+path = "/health"
+port = 3000
+interval = 30
+timeout = 10
